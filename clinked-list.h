@@ -9,8 +9,6 @@ typedef struct listNode {
 
 typedef struct list {
 	ListNode* nil;
-	//ListNode* head;
-	//ListNode* tail;
 } List;
 
 ListNode* createNode(int data);
@@ -20,6 +18,7 @@ void prepend(List* list, int data);
 void postpend(List* list, int data);
 void insertAt(List* list,int x, int y);
 void del(List* list, int data);
+void delList(List* list);
 void printList(List* list);
 
 #endif

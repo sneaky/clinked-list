@@ -128,7 +128,7 @@ int main() {
 	prepend(list, 90);
 
 	printList(list);
-
+	
 	del(list, 60);
 
 	printList(list);
