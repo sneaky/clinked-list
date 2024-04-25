@@ -115,6 +115,25 @@ void delList(List* list) {
 	free(list);
 }
 
+void reverseList(List* list) {
+	if (list->nil->next == list->nil) { return; }
+
+	ListNode* prev = list->nil->prev;
+	ListNode* curr = list->nil->next;
+
+	while (curr != list->nil) {
+		ListNode* next = curr->next;
+		curr->next = prev;
+		curr->prev = next;
+		prev = curr;
+		curr = next;
+	}
+
+	list->nil->prev = prev;
+	list->nil->next->next = list->nil;
+	list->nil->next = prev;
+}
+
 int main() {
 	List* list = createList();
 	prepend(list, 10);
@@ -131,6 +150,9 @@ int main() {
 	
 	del(list, 60);
 
+	printList(list);
+
+	reverseList(list);
 	printList(list);
 
 	delList(list);
